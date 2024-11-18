@@ -1,3 +1,4 @@
+import { useScroll, useTransform,motion } from "framer-motion";
 import { AiFillGithub, AiOutlineHtml5, AiOutlineJava } from "react-icons/ai";
 import {  FaCss3, FaNodeJs, FaPhp, FaReact } from "react-icons/fa";
 import {
@@ -93,8 +94,12 @@ const DUMMYSKILLS = [{
 ];
   
 export default function Skills(){
-return <section style={{height:"100vh",color:"white"}}>
-    <h1 className=" text-5xl font-bold uppercase text-center mb-5">Skills</h1>
+  const {scrollY}=useScroll();
+  const scrollSkills=useTransform(scrollY,[0,300,400],[0.4,1,1.5])
+return <section id="Skills" className="flex flex-col  items-center justify-center" style={{height:"100vh",color:"white"}}>
+    <motion.h1 
+    style={{scale:scrollSkills}}
+    className=" text-3xl font-bold uppercase text-center mb-5 w-fit">Skills</motion.h1>
     <div className=" flex flex-wrap justify-center">
     {DUMMYSKILLS.map((skill)=>{
         return <div className=" flex flex-col w-52  rounded   justify-center items-center mb-2 m-2 pt-2 shadow-sm shadow-black  " style={{color:"white"}}>
