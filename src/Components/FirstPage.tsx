@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ContextProvider, { ColorContext } from "../store/ColorContext";
+import  { ColorContext } from "../store/ColorContext";
 import Contact from "./Contact";
 import Header from "./Header";
 import Home from "./Home";
@@ -7,7 +7,11 @@ import Project from "./Projects";
 import Skills from "./Skills";
 
 export default function FirstPage(){
-    return <div className=' relative w-full h-full bg-customGray px-4 flex flex-col  '>
+    const {colors}=useContext(ColorContext);
+    return <div 
+    style={{backgroundColor:colors.background}}
+    className=' relative w-full h-full  px-4 flex flex-col' 
+    >
        
     <Header/>
     <Home name="Djair Mouad" title="Full-Stack Developer" 

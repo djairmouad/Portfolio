@@ -2,6 +2,8 @@ import imageProject from "../projectImage/1722129120921.jpg";
 import imageChat from "../projectImage/1727541112628.jpg";
 import imageCMMS from "../projectImage/1721222337818.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ColorContext } from "../store/ColorContext";
+import { useContext } from "react";
 
 const DummyProjects = [
   {
@@ -38,24 +40,27 @@ const DummyProjects = [
 ];
 
 export default function Project() {
+  const {colors}=useContext(ColorContext)
   const { scrollY } = useScroll();
   const scrollProject = useTransform(scrollY, [600,800, 1600,1800,2000,2200], [0,-45, 0,-45,0,-45]);
   const scrollprojectTitle=useTransform(scrollY,[0,800,1000],[0.4,1,1.5])
   return (
-    <section id="Projects" className="text-white mt-28 flex flex-col items-center">
+    <section id="Projects" className="mt-28 flex flex-col items-center">
       <motion.h1 className="text-3xl font-bold uppercase text-center mb-10 w-fit"
-       style={{scale:scrollprojectTitle}}
+       style={{scale:scrollprojectTitle,color:colors.color}}
       >
         Featured Projects
       </motion.h1>
       {DummyProjects.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col  items-center gap-10 pb-28 mb-20 "
-          style={{height:"fit-content",border:"1px solid",padding:"5px",borderRadius:"10px"}}
+          className="flex flex-col  items-center gap-10 pb-28 mb-20  "
+          style={{height:"fit-content",border:"1px solid",padding:"5px",borderRadius:"10px",color:colors.colorText}}
         >
              <motion.h1 
-             className="text-2xl text-color_1 uppercase font-normal mb-2">
+             style={{color:colors.color}}
+             className="text-2xl mb-2 uppercase font-bold">
+              
               {item.title}
             </motion.h1>
 
@@ -76,11 +81,11 @@ export default function Project() {
             className="flex flex-col w-full md:w-1/2 pl-5"
           >
             <p className="text-sm text-justify mb-4">{item.Description}</p>
-            <motion.h1 className="text-xs text-color_1 uppercase font-normal">Frontend:</motion.h1>
+            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color}}>Frontend:</motion.h1>
             <h2 className="mb-3">{item.Frontend}</h2>
-            <motion.h1 className="text-xs text-color_1 uppercase font-normal">Backend:</motion.h1>
+            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color}}>Backend:</motion.h1>
             <h2 className="mb-3">{item.Backend}</h2>
-            <motion.h1 className="text-xs text-color_1 uppercase font-normal">Database:</motion.h1>
+            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color}}>Database:</motion.h1>
             <h2>{item.Database}</h2>
           </motion.div>
           </div>

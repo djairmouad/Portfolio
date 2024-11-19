@@ -15,6 +15,8 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
+import { ColorContext } from "../store/ColorContext";
+import { useContext } from "react";
 const DUMMYSKILLS = [{
     skill: "Html",
     icon: < AiOutlineHtml5 />
@@ -94,20 +96,24 @@ const DUMMYSKILLS = [{
 ];
   
 export default function Skills(){
+  const {colors}=useContext(ColorContext);
   const {scrollY}=useScroll();
   const scrollSkills=useTransform(scrollY,[0,300,400],[0.4,1,1.5])
-return <section id="Skills" className="flex flex-col  items-center justify-center" style={{height:"100vh",color:"white"}}>
+return <section id="Skills" className="flex flex-col  items-center justify-center" style={{height:"100vh",color:colors.colorText}}>
     <motion.h1 
-    style={{scale:scrollSkills}}
-    className=" text-3xl font-bold uppercase text-center mb-5 w-fit">Skills</motion.h1>
+    style={{scale:scrollSkills ,color:colors.color}}
+    className=" text-3xl font-bold uppercase text-center mb-5 w-fit" >Skills</motion.h1>
     <div className=" flex flex-wrap justify-center">
-    {DUMMYSKILLS.map((skill)=>{
-        return <div className=" flex flex-col w-52  rounded   justify-center items-center mb-2 m-2 pt-2 shadow-sm shadow-black  " style={{color:"white"}}>
+    {DUMMYSKILLS.map((skill,index)=>{
+        return <motion.div 
+        key={index}
+        whileHover={{backgroundColor:colors.color,color:colors.background}}
+        className=" flex flex-col w-52  rounded   justify-center items-center mb-2 m-2 pt-2 shadow-sm shadow-black  " >
            <div className=" text-3xl ">
            {skill.icon}
             </div>
             <span className=" text-lg">{skill.skill}</span>
-        </div>
+        </motion.div>
     })}
     </div>
    
