@@ -1,4 +1,4 @@
-import {motion, useScroll, useTransform} from "framer-motion"
+import {motion, useScroll} from "framer-motion"
 import image from "../assets/android-chrome-192x192.png"
 import imageChangeColor from "../assets/brush.png";
 import { useCallback, useContext, useEffect, useState } from "react";
@@ -62,37 +62,37 @@ export default function Header(){
                  })}
              </motion.ul>):null}
     <img src={image} className=' w-11 rounded-full '/>
-    <ul style={{"color":colors.colorText}} className=' flex w-2/5 justify-between text-base font-medium max-sm:w-full max-sm:flex-wrap max-sm:justify-center max-sm:text-sm max-sm:h-full max-sm:items-end max-md:w-3/5 max-lg:w-2/3'>
+    <ul style={{color:colors.colorText.toString()}} className=' flex w-2/5 justify-between text-base font-medium max-sm:w-full max-sm:flex-wrap max-sm:justify-center max-sm:text-sm max-sm:h-full max-sm:items-end max-md:w-3/5 max-lg:w-2/3'>
     <motion.li
-    style={{padding:"0 10px",color:colors.colorText}}
-    whileHover={{ scale:1.2, backgroundColor:colors.color,color:"white",borderRadius:"10px",y:5}}
+    style={{padding:"0 10px",color:colors.colorText.toString()}}
+    whileHover={{ scale:1.2, backgroundColor:colors.color.toString(),color:"white",borderRadius:"10px",y:5}}
     transition={{ duration:2, type:"spring",stiffness:250 }}
     >
     <a href="#Home">Home</a>
    </motion.li>
    <motion.li
-    style={{padding:"0 10px",color:colors.colorText}}
-    whileHover={{ scale:1.2, backgroundColor:colors.color,color:"white",borderRadius:"10px",y:5}}
+    style={{padding:"0 10px",color:colors.colorText.toString()}}
+    whileHover={{ scale:1.2, backgroundColor:colors.color.toString(),color:"white",borderRadius:"10px",y:5}}
     transition={{ duration:2, type:"spring",stiffness:250 }}
     >
     <a href="#Skills">Skills</a>
     </motion.li>
     <motion.li
-    style={{padding:"0 10px",color:colors.colorText}}
-    whileHover={{ scale:1.2, backgroundColor:colors.color,color:"white",borderRadius:"10px",y:5}}
+    style={{padding:"0 10px",color:colors.colorText.toString()}}
+    whileHover={{ scale:1.2, backgroundColor:colors.color.toString(),color:"white",borderRadius:"10px",y:5}}
     transition={{ duration:2, type:"spring",stiffness:250 }}
     >
     <a href="#Projects">Projects</a>
     </motion.li>
     <motion.li
-    style={{padding:"0 10px",color:colors.colorText}}
-    whileHover={{ scale:1.2, backgroundColor:colors.color,color:"white",borderRadius:"10px",y:5}}
+    style={{padding:"0 10px",color:colors.colorText.toString()}}
+    whileHover={{ scale:1.2, backgroundColor:colors.color.toString(),color:"white",borderRadius:"10px",y:5}}
     transition={{ duration:2, type:"spring",stiffness:250 }}
     ><a href="#Contact">Contact Me</a></motion.li>
     <motion.li
     onClick={openPopop}
-    style={{padding:"0 10px",color:colors.colorText}}
-    whileHover={{ scale:1.2, backgroundColor:colors.color,color:"white",borderRadius:"10px",y:5}}
+    style={{padding:"0 10px",color:colors.colorText.toString()}}
+    whileHover={{ scale:1.2, backgroundColor:colors.color.toString(),color:"white",borderRadius:"10px",y:5}}
     transition={{ duration:2, type:"spring",stiffness:250 }}
     ><img src={imageChangeColor} className=" h-7"/></motion.li>
     </ul>

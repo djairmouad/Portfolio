@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import image from "../mailImage/mail-box (1).png";
 import { ColorContext } from "../store/ColorContext";
 import { useContext, useRef } from "react";
+// Type assertion to define SendMail's type directly
+// @ts-ignore
 import SendMail from "../services/SendMail.js";
 import { toast} from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
@@ -10,7 +12,6 @@ export default function Contact() {
   const email = useRef<HTMLInputElement | null>(null);
   const message = useRef<HTMLTextAreaElement | null>(null);
   const { colors } = useContext(ColorContext);
-  const dir = "ltr";
 
   async function handleSendEmail(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault();
@@ -46,7 +47,7 @@ export default function Contact() {
 
   return (
     <section id="Contact" style={{ height: "100vh" }}>
-      <h1 className="text-3xl font-bold mb-3" style={{ color: colors.colorText }}>
+      <h1 className="text-3xl font-bold mb-3" style={{ color: colors.colorText.toString() }}>
         Contact Me📬
       </h1>
       <div className="flex h-4/5 w-full justify-between items-center max-sm:flex-col">
@@ -88,8 +89,8 @@ export default function Contact() {
               type="submit"
               className="outline-none bg-color_1 px-4 py-2 rounded-md font-normal"
               style={{
-                color: colors.background,
-                backgroundColor: colors.color,
+                color: colors.background.toString(),
+                backgroundColor: colors.color.toString(),
               }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3, type: "spring", stiffness: 250 }}

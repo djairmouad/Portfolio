@@ -9,7 +9,7 @@ import Skills from "./Skills";
 export default function FirstPage(){
     const {colors}=useContext(ColorContext);
     return <div 
-    style={{backgroundColor:colors.background}}
+    style={{backgroundColor:colors.background.toString()}}
     className=' relative w-full h-full  px-4 flex flex-col' 
     >
        
