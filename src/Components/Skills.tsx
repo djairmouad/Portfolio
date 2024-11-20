@@ -99,7 +99,7 @@ export default function Skills(){
   const {colors}=useContext(ColorContext);
   const {scrollY}=useScroll();
   const scrollSkills=useTransform(scrollY,[0,300,400],[0.4,1,1.5])
-return <section id="Skills" className="flex flex-col  items-center justify-center" style={{height:"100vh",color:colors.colorText}}>
+return <section id="Skills" className="flex flex-col  items-center justify-center" style={{color:colors.colorText}}>
     <motion.h1 
     style={{scale:scrollSkills ,color:colors.color}}
     className=" text-3xl font-bold uppercase text-center mb-5 w-fit" >Skills</motion.h1>

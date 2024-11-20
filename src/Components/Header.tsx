@@ -48,7 +48,7 @@ export default function Header(){
       // Cleanup listener
       return () => unsubscribe();
     }, [scrollY, handelCloas, hasScrolled]);
-    return <header className=' flex justify-between items-center h-16 relative'>
+    return <header className=' flex justify-between items-center h-16 relative max-sm:justify-start'>
        {popop?(<motion.ul 
               variants={{
                 hidden: { transition: { staggerChildren: 0.1,type:"spring"} },
@@ -56,13 +56,13 @@ export default function Header(){
               }}
               initial="hidden"
               animate="visible"
-              className="absolute top-full right-0  h-fit p-3 rounded-lg font-bold" style={{width:"250px",background:"#35363b",boxShadow:"0px 1px 4px"}}>
+              className="absolute top-full right-0  h-fit p-3 rounded-lg font-bold " style={{width:"250px",background:"#35363b",boxShadow:"0px 1px 4px"}}>
                  {DummyArray.map((item,index)=>{
                  return <ModelColor key={index} item={item}/> 
                  })}
              </motion.ul>):null}
     <img src={image} className=' w-11 rounded-full '/>
-    <ul style={{"color":colors.colorText}} className=' flex w-2/5 justify-between text-base font-medium'>
+    <ul style={{"color":colors.colorText}} className=' flex w-2/5 justify-between text-base font-medium max-sm:w-full max-sm:flex-wrap max-sm:justify-center max-sm:text-sm max-sm:h-full max-sm:items-end max-md:w-3/5 max-lg:w-2/3'>
     <motion.li
     style={{padding:"0 10px",color:colors.colorText}}
     whileHover={{ scale:1.2, backgroundColor:colors.color,color:"white",borderRadius:"10px",y:5}}

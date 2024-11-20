@@ -43,10 +43,10 @@ export default function Project() {
   const {colors}=useContext(ColorContext)
   const { scrollY } = useScroll();
   const scrollProject = useTransform(scrollY, [600,800, 1600,1800,2000,2200], [0,-45, 0,-45,0,-45]);
-  const scrollprojectTitle=useTransform(scrollY,[0,800,1000],[0.4,1,1.5])
+  const scrollprojectTitle=useTransform(scrollY,[0,800,1200],[0.4,1,1.5])
   return (
     <section id="Projects" className="mt-28 flex flex-col items-center">
-      <motion.h1 className="text-3xl font-bold uppercase text-center mb-10 w-fit"
+      <motion.h1 className="text-2xl font-bold uppercase text-center mb-10 w-fit"
        style={{scale:scrollprojectTitle,color:colors.color}}
       >
         Featured Projects
