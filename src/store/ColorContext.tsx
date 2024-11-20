@@ -5,12 +5,22 @@ interface typeColor{
     color:String,
     colorText:String
 }
-export const ColorContext=createContext({
-    changeColor:({}:typeColor)=>{}
-})
+export const ColorContext = createContext<{
+    changeColor: (newColors: typeColor) => void;
+    colors: typeColor;
+    openPopop:()=>void;
+    cloasPopop:()=>void;
+    popop:Boolean
+}>({
+    changeColor: () => {}, // Default function implementation
+    colors: { background: "", color: "", colorText: "" }, // Default colors
+    openPopop:()=>{},
+    cloasPopop:()=>{},
+    popop:false
+});
 
 
- const ContextProvider:React.FC=(props)=>{
+ const ContextProvider:React.FC<{children: React.ReactNode}>=(props)=>{
 
 const [colors,setColors]=useState<typeColor>({background:"rgb(53 54 59)",color:"#ffc96b",colorText:"white"});
 const [state,setState]=useState(false);
@@ -24,10 +34,10 @@ function openPopop(){
 }
 
 function cloasPopop(){
-    setState(prev=>false)
+    setState(false)
 }
 const contextValue:{
-    changeColor:()=>void,
+    changeColor:(obj:typeColor)=>void,
     colors:typeColor,
     openPopop:()=>void,
      cloasPopop:()=>void,

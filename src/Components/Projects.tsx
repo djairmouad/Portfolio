@@ -47,7 +47,7 @@ export default function Project() {
   return (
     <section id="Projects" className="mt-28 flex flex-col items-center">
       <motion.h1 className="text-2xl font-bold uppercase text-center mb-10 w-fit"
-       style={{scale:scrollprojectTitle,color:colors.color}}
+       style={{scale:scrollprojectTitle,color:colors.color.toString()}}
       >
         Featured Projects
       </motion.h1>
@@ -55,10 +55,10 @@ export default function Project() {
         <div
           key={index}
           className="flex flex-col  items-center gap-10 pb-28 mb-20  "
-          style={{height:"fit-content",border:"1px solid",padding:"5px",borderRadius:"10px",color:colors.colorText}}
+          style={{height:"fit-content",border:"1px solid",padding:"5px",borderRadius:"10px",color:colors.colorText.toString()}}
         >
              <motion.h1 
-             style={{color:colors.color}}
+             style={{color:colors.color.toString()}}
              className="text-2xl mb-2 uppercase font-bold">
               
               {item.title}
@@ -81,11 +81,11 @@ export default function Project() {
             className="flex flex-col w-full md:w-1/2 pl-5"
           >
             <p className="text-sm text-justify mb-4">{item.Description}</p>
-            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color}}>Frontend:</motion.h1>
+            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color.toString()}}>Frontend:</motion.h1>
             <h2 className="mb-3">{item.Frontend}</h2>
-            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color}}>Backend:</motion.h1>
+            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color.toString()}}>Backend:</motion.h1>
             <h2 className="mb-3">{item.Backend}</h2>
-            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color}}>Database:</motion.h1>
+            <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color.toString()}}>Database:</motion.h1>
             <h2>{item.Database}</h2>
           </motion.div>
           </div>
