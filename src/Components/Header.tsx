@@ -48,7 +48,11 @@ export default function Header(){
       // Cleanup listener
       return () => unsubscribe();
     }, [scrollY, handelCloas, hasScrolled]);
-    return <header className=' flex justify-between items-center h-16 relative max-sm:justify-start'>
+    return <motion.header 
+    initial={{y:-50}}
+    animate={{y:0}}
+    transition={{type:"spring",stiffness:150,delay:0.2}}
+    style={{fontFamily: "system-ui"}} className=' flex justify-between items-center h-16 relative max-sm:justify-start'>
        {popop?(<motion.ul 
               variants={{
                 hidden: { transition: { staggerChildren: 0.1,type:"spring"} },
@@ -56,7 +60,7 @@ export default function Header(){
               }}
               initial="hidden"
               animate="visible"
-              className="absolute top-full right-0  h-fit p-3 rounded-lg font-bold " style={{width:"250px",background:"#35363b",boxShadow:"0px 1px 4px"}}>
+              className="absolute top-full right-0  h-fit p-3 rounded-lg font-bold " style={{width:"250px",background:colors.background.toString(),boxShadow:"0px 1px 4px"}}>
                  {DummyArray.map((item,index)=>{
                  return <ModelColor key={index} item={item}/> 
                  })}
@@ -96,5 +100,5 @@ export default function Header(){
     transition={{ duration:2, type:"spring",stiffness:250 }}
     ><img src={imageChangeColor} className=" h-7"/></motion.li>
     </ul>
-  </header>
+  </motion.header>
 }

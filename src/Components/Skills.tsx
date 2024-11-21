@@ -101,14 +101,18 @@ export default function Skills(){
   const scrollSkills=useTransform(scrollY,[0,300,400],[0.4,1,1.5])
 return <section id="Skills" className="flex flex-col  items-center justify-center" style={{color:colors.colorText.toString()}}>
     <motion.h1 
-    style={{scale:scrollSkills ,color:colors.color.toString()}}
+    style={{scale:scrollSkills ,color:colors.color.toString(),fontFamily:"monospace"}}
     className=" text-3xl font-bold uppercase text-center mb-5 w-fit" >Skills</motion.h1>
     <div className=" flex flex-wrap justify-center">
     {DUMMYSKILLS.map((skill,index)=>{
         return <motion.div 
+        initial={{scale:0}}
+        animate={{scale:0.8}}
+        transition={{type:"spring",stiffness:100}}
+        style={{fontFamily: "system-ui"}}
         key={index}
         whileHover={{backgroundColor:colors.color.toString(),color:colors.background.toString()}}
-        className=" flex flex-col w-52  rounded   justify-center items-center mb-2 m-2 pt-2 shadow-sm shadow-black  " >
+        className="flex flex-col w-52  rounded   justify-center items-center mb-2 m-2 pt-2 shadow-sm shadow-black  " >
            <div className=" text-3xl ">
            {skill.icon}
             </div>

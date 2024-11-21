@@ -10,21 +10,23 @@ const DummyProjects = [
     title: "Ecommerce Web Site",
     image: imageProject,
     Description:
-      "Welcome to my Full-Stack Ecommerce Website – the ultimate online shopping destination! With powerful admin tools to effortlessly manage products, categories, orders, and user accounts, this platform ensures smooth operations from the backend. For shoppers, enjoy a seamless and intuitive experience: browse an extensive product catalog, add items to your cart, read real-time reviews, and make secure purchases in just a few clicks. Personalize your shopping journey with easy profile management and track your orders with ease. Whether you're an admin or a customer, this platform offers an exceptional, hassle-free shopping experience designed for convenience and reliability!",
+      "Welcome to my Full-Stack Ecommerce Website! Admins can efficiently manage products, categories, orders, and user accounts. Shoppers can browse products, add items to their cart, read reviews, and make secure purchases. With easy profile management and order tracking, the platform ensures a smooth and convenient experience for all.",
     Frontend: "React, Tailwind CSS, Redux, React Router, and other libraries.",
     Backend: "Node.js, Express.js.",
     Database: "MySQL.",
+    url:"https://github.com/djairmouad/Ecommerce-web-Site-"
   },
   {
     title: "Chat Application",
     image: imageChat,
     Description:
-      "A fully immersive chat application designed for effortless communication! With secure sign-ups, real-time messaging, and the ability to search for and connect with friends, it offers a dynamic and interactive experience. Share images, make video calls with complete control over the camera and microphone, and personalize your profile. Whether for casual chats or virtual face-to-face conversations, this app ensures a seamless and secure communication experience. Perfect for those seeking both functionality and a user-friendly interface!",
+      "Discover a chat app designed for easy communication! Send real-time messages, share images, make video calls with camera and mic controls, and connect with friends quickly. Customize your profile and enjoy a secure, user-friendly experience.",
     Frontend:
       "React.js, Tailwind CSS, Redux ⚛️, ensuring a smooth, responsive user interface with a focus on performance and scalability.",
     Backend:
       "Node.js, Express.js 🛠️, providing a robust and flexible server-side infrastructure. Real-time Communication: Socket.IO, WebRTC ⚡, enabling instant messaging and video call functionality.",
     Database: "MongoDB 🗄️, a NoSQL database that allows for efficient and scalable data management.",
+    url:"https://github.com/djairmouad/AppChat"
   },
   {
     title: "Computerized Maintenance Management System",
@@ -36,6 +38,7 @@ const DummyProjects = [
     Backend:
       "PHP (phpMailer/tcpdf library).",
     Database: "MySQL.",
+    url:"https://github.com/djairmouad/gestion-de-maintenance-assist-e-par-ordinateur"
   },
 ];
 
@@ -47,7 +50,7 @@ export default function Project() {
   return (
     <section id="Projects" className="mt-28 flex flex-col items-center">
       <motion.h1 className="text-2xl font-bold uppercase text-center mb-10 w-fit"
-       style={{scale:scrollprojectTitle,color:colors.color.toString()}}
+       style={{scale:scrollprojectTitle,color:colors.color.toString() , fontFamily:"monospace"}}
       >
         Featured Projects
       </motion.h1>
@@ -58,7 +61,7 @@ export default function Project() {
           style={{height:"fit-content",border:"1px solid",padding:"5px",borderRadius:"10px",color:colors.colorText.toString()}}
         >
              <motion.h1 
-             style={{color:colors.color.toString()}}
+             style={{color:colors.color.toString(),fontFamily:"monospace"}}
              className="text-2xl mb-2 uppercase font-bold">
               
               {item.title}
@@ -76,7 +79,7 @@ export default function Project() {
             className="w-full md:w-2/4 h-60 rounded-2xl shadow-lg"
           />
           <motion.div
-           style={{ y: scrollProject }}
+           style={{ y: scrollProject,fontFamily:"math" }}
            transition={{type:"spring",duration:0.2}}
             className="flex flex-col w-full md:w-1/2 pl-5"
           >
@@ -87,6 +90,12 @@ export default function Project() {
             <h2 className="mb-3">{item.Backend}</h2>
             <motion.h1 className="text-xl  uppercase font-bold" style={{color:colors.color.toString()}}>Database:</motion.h1>
             <h2>{item.Database}</h2>
+            <motion.a target="_blank"
+            href={item.url}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3, type: "spring", stiffness: 250 }}
+            style={{cursor:"pointer",margin:"auto",width:"fit-content",color: colors.background.toString(), backgroundColor: colors.color.toString(),padding:"1px 10px",borderRadius:"5px",fontFamily:"system-ui",fontSize:"18px"}}>
+              DEMO</motion.a>
           </motion.div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import image from "../mailImage/mail-box (1).png";
+import image from "../mailImage/undraw_mailbox_re_dvds.svg";
 import { ColorContext } from "../store/ColorContext";
 import { useContext, useRef } from "react";
 // Type assertion to define SendMail's type directly
@@ -7,6 +7,9 @@ import { useContext, useRef } from "react";
 import SendMail from "../services/SendMail.js";
 import { toast} from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Contact() {
   const email = useRef<HTMLInputElement | null>(null);
@@ -95,6 +98,7 @@ export default function Contact() {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3, type: "spring", stiffness: 250 }}
             >
+              <FontAwesomeIcon icon={faHeart} className="mr-1" />
               SEND
             </motion.button>
           </div>
@@ -121,6 +125,7 @@ export default function Contact() {
           className="w-2/6 mr-5"
           alt="Mailbox illustration"
         />
+        
       </div>
       <Toaster position="bottom-right" reverseOrder={false}/>
       
